@@ -44,7 +44,7 @@ func (userService UserService) SaveUser(user model.TUser) model.TUser {
 	userId := config.SessionGet("userId").(string)
 	user.CreateUserID = userId
 	user.UpdateUserID = userId
-	user.Address = utils.PhoneToEVMAddress(user.Mobile)
+	user.Address = user.Address
 	models.DB.Save(&user)
 	if len(user.OrgList) == 0 {
 		user.OrgList = append(user.OrgList, model.TOrg{ID: "defaultOrgId"})

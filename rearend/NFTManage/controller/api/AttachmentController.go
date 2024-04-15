@@ -8,7 +8,6 @@ import (
 	"strconv"
 	"strings"
 	"time"
-	"yqnft/NFTManage/config"
 	"yqnft/NFTManage/models"
 	"yqnft/NFTManage/models/model"
 	"yqnft/NFTManage/service"
@@ -22,7 +21,8 @@ var staticdir string = "./static"
 var userRoleOrgService service.UserRoleOrgService
 
 func (con AttachmentController) Upload(c *gin.Context) {
-	userId := config.SessionGet("userId").(string)
+	//userId := config.SessionGet("userId").(string)
+	userId := "u_10001"
 	query := c.Query("type")
 	file, _ := c.FormFile("file")
 

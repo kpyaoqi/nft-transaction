@@ -73,6 +73,7 @@ export default class Login extends Component {
             sex,
             mobile,
             email,
+            address
         } = values;
         const { avatar } = this.state;
         const params = {
@@ -82,7 +83,8 @@ export default class Login extends Component {
             sex,
             mobile,
             avatar,
-            email
+            email,
+            address
         };
         this.setState({ loading: true, message: "" });
         this.props.ajax
@@ -151,7 +153,7 @@ export default class Login extends Component {
         const formItemStyleName = isMount ? "form-item active" : "form-item";
 
         return (
-            <div styleName="root">
+            <div styleName="root" style={{overflow:'auto'}}>
                 <Helmet title="欢迎登陆" />
                 <div styleName="banner">
                     <Banner />
@@ -283,6 +285,20 @@ export default class Login extends Component {
                                         <MailOutlined className="site-form-item-icon" />
                                     }
                                     placeholder="邮箱"
+                                />
+                            </Form.Item>
+                        </div>
+                        <div styleName={formItemStyleName}>
+                            <Form.Item
+                                name="address"
+                            >
+                                <Input
+                                    allowClear
+                                    autoFocus
+                                    prefix={
+                                        <MailOutlined className="site-form-item-icon" />
+                                    }
+                                    placeholder="钱包地址"
                                 />
                             </Form.Item>
                         </div>
